@@ -2,6 +2,11 @@ import styled from "styled-components"
 import fontFamily from "../../design/typography"
 import { darken } from "polished"
 
+export const ContentHeader = styled.div`
+  padding: 64px;
+  padding-bottom: 0;
+`
+
 export const Content = styled.div`
   flex: 1 1 calc(100% - 305px);
   width: calc(100% - 305px);
@@ -18,7 +23,6 @@ export const Sidebar = styled.div`
   flex: 0 0 240px;
   border-left: 1px solid ${(props) => darken(0.1, props.theme.main.background)};
   color: ${(props) => (props.theme.name === "dark" ? "#f9f9f9" : "#172129")};
-  margin: 64px 0;
   padding: 0 32px;
   position: sticky;
   top: 32px;

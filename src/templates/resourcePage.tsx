@@ -47,13 +47,9 @@ const ResourcePage: FC<any> = ({ data }) => {
         shifted={shiftLayout}
       />
       <PageContent
-        content={
-          <>
-            <Markdown content={body} />
-            <Footer />
-          </>
-        }
+        content={<Markdown content={body} />}
         toc={toc}
+        footer={<Footer />}
         recommendedReading={frontmatter.recommended_reading}
         externalResources={frontmatter.external_resources}
       />

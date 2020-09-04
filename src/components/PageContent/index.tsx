@@ -11,6 +11,7 @@ interface IPageContentProps {
   toc?: ITocItem[]
   recommendedReading?: string[]
   externalResources?: IExternalResource[]
+  footer?: JSX.Element
 }
 
 export const PageContent: FC<IPageContentProps> = ({
@@ -18,21 +19,24 @@ export const PageContent: FC<IPageContentProps> = ({
   toc = [],
   recommendedReading,
   externalResources,
+  footer,
 }) => {
   return (
     <>
-      <SC.Content>
-        <Container>{content}</Container>
-      </SC.Content>
-
-      <SC.Sidebar>
+      <SC.ContentHeader>
         {toc.length > 0 && (
           <Toc
             header={<SC.SidebarHeader>Table of Contents</SC.SidebarHeader>}
             items={toc}
           />
         )}
+      </SC.ContentHeader>
 
+      <SC.Content>
+        <Container>{content}</Container>
+      </SC.Content>
+
+      <SC.Sidebar>
         {recommendedReading && (
           <SC.RecommendedReading>
             <SC.SidebarHeader>Recommended reading</SC.SidebarHeader>
@@ -57,6 +61,7 @@ export const PageContent: FC<IPageContentProps> = ({
             })}
           </SC.ExternalResources>
         )}
+        {footer}
       </SC.Sidebar>
     </>
   )
